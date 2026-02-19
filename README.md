@@ -116,8 +116,19 @@ The recommended workflow has four phases:
 
 ### Give Claude a way to verify its work
 
+Don't just ask for code - ask for proof that the code works. AI can run tests, check types, and verify its own output, but only if you ask. Every implementation request should include verification.
+
 AI tools perform dramatically better when they can verify their own work, like run tests, compare screenshots, and validate outputs.
 Without clear success criteria, it might produce something that looks right but actually doesn’t work. You become the only feedback loop, and every mistake requires your attention. Invest in making your verification rock-solid.
+
+#### Verification Techniques
+
+- Write tests alongside implementation
+- Run existing tests after changes
+- Check for linting errors
+- Verify TypeScript/type errors
+- Confirm the code compiles
+
 
 > **Note**: Include tests, screenshots, or expected outputs so Claude can check itself. This is the single highest-leverage thing you can do!
 
