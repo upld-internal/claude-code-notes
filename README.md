@@ -81,42 +81,50 @@ Check out [anthropics/skills](https://github.com/anthropics/skills/tree/main/ski
 
 ## Best Practices
 Claude Code is an agentic coding environment. Unlike a chatbot that answers questions and waits, Claude Code can read your files, run commands, make changes, and autonomously work through problems while you watch, redirect, or step away entirely.
-This changes how you work. Instead of writing code yourself and asking Claude to review it, you describe what you want and Claude figures out how to build it. Claude explores, plans, and implements. See more best practices in the [anthropic docs](https://code.claude.com/docs/en/best-practices).
+
+This changes how you work. Instead of writing code yourself and asking Claude to review it, you describe what you want and Claude figures out how to build it. Claude explores, plans, and implements. Find Anthropic's updated recommended best practices guide in the [anthropic docs](https://code.claude.com/docs/en/best-practices).
 
 ### Provide context in your prompts
 When prompting, you need to be specific about what you are asking AI to do and use explicit instructions. This may seem obvious, but it's where most prompts fail. The more information you provide, the more accurate the generated response will be. This often requires that you think more deeply about what you are asking before you type your prompt. 
 
-Start with context, the way you’d brief a teammate. If you don’t share constraints, library versions, project rules, and intended behavior, the model will happily invent them for you.
+Start with context, the way you’d brief a new teammate. If you don’t share constraints, library versions, project rules, and intended behavior, the model will happily invent them for you.
 
 You can provide rich data to Claude in several ways:
-- Reference files with `@` instead of describing where code lives. Claude reads the file before responding.
+- Reference specific files with `@` instead of describing where code lives. Claude reads the file before responding.
 - Paste images directly. Copy/paste or drag and drop images into the prompt.
 - Give URLs for documentation and API references. Use `/permissions` to allowlist frequently-used domains.
 - Pipe in data by running `cat error.log | claude` to send file contents directly.
 - Let Claude fetch what it needs. Tell Claude to pull context itself using Bash commands, MCP tools, skills, or by reading files.
 
-### Explore, plan, code
+### Explore → Plan → Code
 
 Letting Claude jump straight to coding can produce code that solves the wrong problem. Use Plan Mode to separate exploration from execution.
 
+| Step | What You Do | Why It Matters |
+| --- | --- | --- |
+| **Explore** | Understand codebase structure and patterns | Prevents reinventing existing solutions |
+| **Plan** | Create detailed approach before coding | Catches issues before they're built |
+| **Code** | Execute the plan with AI assistance | Focused implementation, fewer rewrites |
+
 The recommended workflow has four phases:
 
-1. **Explore**: Enter Plan Mode. Claude reads files and answers questions without making changes.
-2. **Plan**: Ask Claude to create a detailed implementation plan. Press `Ctrl+G` to edit the plan before Claude proceeds.
-3. **Implement**: Switch back to Normal Mode and let Claude code, verifying against its plan.
-4. **Commit**: Ask Claude to commit with a descriptive message and create a PR.
+1. **Explore**: Press `Shift+Tab` to enter Plan Mode. Claude reads files and answers questions without making changes.
+2. **Plan**: Ask Claude to create a detailed implementation plan. Optionally, press `Ctrl+G` to edit the plan before Claude proceeds.
+3. **Implement**: Press `Shift+Tab` to switch back to Normal Mode and let Claude code, verifying against its plan.
+4. **Commit**: Ask Claude to commit with a descriptive message and create a pull request.
 
 
 ### Give Claude a way to verify its work
 
-Claude performs dramatically better when it can verify its own work, like run tests, compare screenshots, and validate outputs.
+AI tools perform dramatically better when they can verify their own work, like run tests, compare screenshots, and validate outputs.
 Without clear success criteria, it might produce something that looks right but actually doesn’t work. You become the only feedback loop, and every mistake requires your attention. Invest in making your verification rock-solid.
 
 > **Note**: Include tests, screenshots, or expected outputs so Claude can check itself. This is the single highest-leverage thing you can do!
 
 ## Advanced Usage
 
-See [advanced usage]() for more advanced workflows with claude code including:
+See [advanced usage](/advanced.md) for more advanced workflows with claude code including:
+- Sub-Agents
 - MCP
 - Hooks
 - Dev Containers
