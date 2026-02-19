@@ -1,0 +1,147 @@
+# Claude Code with AWS Bedrock and SSO
+
+My personal notes for setting up and using Claude Code with AWS Bedrock, authenticated via SSO.
+
+I will try to update periodically, but if you notice any errors, please contact me ([bripley@uplandsoftware.com](mailto:bripley@uplandsoftware.com)) or file an issue in this repo so I can update.
+
+## Overview
+
+[Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's official CLI tool for interacting with Claude. When using it with AWS Bedrock, Claude runs within our AWS infrastructure, giving us control over data residency and security. 
+
+[AWS Bedrock](https://aws.amazon.com/bedrock/) provides a single interface for foundation models from Anthropic, Meta, Mistral, Stability AI, and Amazon (Nova/Titan), allowing for text, image, and chat-based applications without managing infrastructure.
+
+#### Prerequisites
+
+- AWS account with Bedrock access enabled - `USS-AI-DEV` (905418058350)
+- JumpCloud account configured as an identity provider for AWS
+- Model access enabled in AWS Bedrock (specifically in a supported region)
+- Shell: Works best in bash or zsh
+
+## Configuration Steps
+You need to configure several things:
+
+1. [Configure AWS Profile and AWS Cli SSO Authentication](/configuration/Configure%20AWS%20for%20SSO.md)
+2. [Install Claude Code](/configuration/Install%20Claude%20Code.md)
+3. [Set Environment Variables for AWS Bedrock](/configuration/Configure%20Claude%20for%20Bedrock.md)
+
+Once configured, you can start Claude Code by changing to your project folder and running:
+```
+claude
+```
+
+## Basic Usage
+
+1. Standard shell commands while inside claude: Use `!` to run non-claude terminal commands within the claude code cli. For example:
+    ```
+    ! ls -al
+    ```
+
+2. Switch models using the `/model` slash command
+    ```
+    /model opus
+    /model sonnet
+    /model haiku
+    ```
+
+3. Use `/clear` slash command to clear context
+    ```
+    /clear
+    ```
+
+4. Use plan mode - press `Shift+Tab` to cycle to the "plan mode" indicator (⏸) in the terminal, then enter your complex request; Claude will analyze and create a detailed, step-by-step plan without making changes, which you can review, edit (`Ctrl+G`), and approve before execution, separating thinking from doing for safer, more complex refactors. 
+
+## Config Files
+
+### claude.md
+`claude.md` is a special file that Claude reads at the start of every conversation. Include Bash commands, code style, and workflow rules. This gives Claude persistent project-wide context it can’t infer from code alone.
+
+There’s no required format for claude.md files, but keep it short and human-readable. Include context about project structure, code style, instructions to lint/build/test/run, project conventions, constraints, library versions, etc. 
+
+The claude.md is loaded every session, so only include things that apply broadly. For domain knowledge or workflows that are only relevant sometimes, use [Skills](#skillsmd) instead. Claude loads them on demand without bloating every conversation.
+
+You can place claude.md files in several locations:
+- **Home folder**:
+    -  `~/.claude/claude.md`: Applies to all Claude sessions
+- **Project root**:
+    - name it `./claude.md` and check into git to share with your team
+    - or name it `claude.local.md` and .gitignore it to use it for personal preferences
+- **Parent directories**:
+    - Useful for monorepos where both `root/claude.md` and `root/foo/CLAUDE.md` are pulled in automatically
+- **Child directories**: 
+    - Claude pulls in `child claude.md` files on demand when working with files in those directories
+
+> **Pro tip**: Run `/init` to generate a starter claude.md file based on your current project structure, then refine over time.
+
+### Skills.md
+Skills teach Claude how to complete specific tasks in a repeatable way. Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks, or you can invoke one directly with /skill-name. 
+
+Skills are typically added to a hidden `.claude/skills` skills directory in the root of your project. For example `.claude/skills/code-review/skill.md` 
+
+Check out [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills) for some great examples of pre-made skills or learn more about [how to create custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills).
+
+## Best Practices
+Claude Code is an agentic coding environment. Unlike a chatbot that answers questions and waits, Claude Code can read your files, run commands, make changes, and autonomously work through problems while you watch, redirect, or step away entirely.
+This changes how you work. Instead of writing code yourself and asking Claude to review it, you describe what you want and Claude figures out how to build it. Claude explores, plans, and implements. See more best practices in the [anthropic docs](https://code.claude.com/docs/en/best-practices).
+
+### Provide context in your prompts
+When prompting, you need to be specific about what you are asking AI to do and use explicit instructions. This may seem obvious, but it's where most prompts fail. The more information you provide, the more accurate the generated response will be. This often requires that you think more deeply about what you are asking before you type your prompt. 
+
+Start with context, the way you’d brief a teammate. If you don’t share constraints, library versions, project rules, and intended behavior, the model will happily invent them for you.
+
+You can provide rich data to Claude in several ways:
+- Reference files with `@` instead of describing where code lives. Claude reads the file before responding.
+- Paste images directly. Copy/paste or drag and drop images into the prompt.
+- Give URLs for documentation and API references. Use `/permissions` to allowlist frequently-used domains.
+- Pipe in data by running `cat error.log | claude` to send file contents directly.
+- Let Claude fetch what it needs. Tell Claude to pull context itself using Bash commands, MCP tools, skills, or by reading files.
+
+### Explore, plan, code
+
+Letting Claude jump straight to coding can produce code that solves the wrong problem. Use Plan Mode to separate exploration from execution.
+
+The recommended workflow has four phases:
+
+1. **Explore**: Enter Plan Mode. Claude reads files and answers questions without making changes.
+2. **Plan**: Ask Claude to create a detailed implementation plan. Press `Ctrl+G` to edit the plan before Claude proceeds.
+3. **Implement**: Switch back to Normal Mode and let Claude code, verifying against its plan.
+4. **Commit**: Ask Claude to commit with a descriptive message and create a PR.
+
+
+### Give Claude a way to verify its work
+
+Claude performs dramatically better when it can verify its own work, like run tests, compare screenshots, and validate outputs.
+Without clear success criteria, it might produce something that looks right but actually doesn’t work. You become the only feedback loop, and every mistake requires your attention. Invest in making your verification rock-solid.
+
+> **Note**: Include tests, screenshots, or expected outputs so Claude can check itself. This is the single highest-leverage thing you can do!
+
+## Advanced Usage
+
+See [advanced usage]() for more advanced workflows with claude code including:
+- MCP
+- Hooks
+- Dev Containers
+- Git Worktrees
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
