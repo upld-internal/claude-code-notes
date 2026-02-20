@@ -9,11 +9,16 @@ This section is a work in progress. This will probably be broken out into separa
 
 ## Sub-Agents
 
-
+> [!WARNING]
+> This section is still a work in progress
 ## MCP
+> [!WARNING]
+> This section is still a work in progress
+
 With MCP servers, you can allow Claude to connect to external services. For example, you could use MCP to implement features from issue trackers, query databases, analyze monitoring data, integrate designs from Figma, or automate workflows.
 
-> **Note**: Run `claude mcp` add to connect external tools like Jira or AWS.
+> [!Note] 
+> Run `claude mcp` add to connect external tools like Jira or AWS.
 
 ## Hooks & settings.json
 
@@ -35,6 +40,10 @@ Claude Code supports multiple settings.json locations:
 The reference [devcontainer setup](https://github.com/anthropics/claude-code/tree/main/.devcontainer) and associated [Dockerfile](https://github.com/anthropics/claude-code/blob/main/.devcontainer/Dockerfile) offer a preconfigured development container that you can use as is, or customize for your needs. This devcontainer works with the Visual Studio Code [Dev Containers extension](https://code.visualstudio.com/docs/devcontainers/containers) and similar tools. The container’s enhanced security measures (isolation and firewall rules) allow you to run `claude --dangerously-skip-permissions` to bypass permission prompts for unattended operation.
 
 ## Git Worktrees
+
+> [!WARNING]
+> This section is still a work in progress
+
 Git worktrees combined with Claude Code create a powerful workflow for parallel development. Instead of juggling multiple branches on a single working directory, you can have multiple isolated environments where different Claude Code instances work simultaneously on separate features without any conflicts.
 
 Git worktrees allow you to check out multiple branches from the same repository into separate directories. Each worktree has its own working directory with isolated files, while sharing the same Git history and reflog.

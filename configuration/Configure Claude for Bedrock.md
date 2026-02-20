@@ -2,7 +2,7 @@
 
 ## Configure Envirionment Variables
 The following variables should be set. I add this block to my `~/.bashrc` or `~/.zshrc` so it runs automatically when I open a new terminal.
-```
+```bash
 # Tell claude to use Bedrock instead of the default
 CLAUDE_CODE_USE_BEDROCK=1
 
