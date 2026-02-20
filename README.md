@@ -1,6 +1,6 @@
 # Claude Code with AWS Bedrock and SSO
 
-My personal notes for setting up and using Claude Code with AWS Bedrock, authenticated via SSO. I will try to update periodically, but if you notice any errors, please contact me ([bripley@uplandsoftware.com](mailto:bripley@uplandsoftware.com)) or file an issue in this repo so I can update.
+My personal notes for setting up and using Claude Code with AWS Bedrock, authenticated via SSO. I will try to update periodically, but if you notice any errors, please feel free to submit a pull request, [file an issue](https://github.com/upld-internal/claude-code-notes/issues/new), or contact me ([bripley@uplandsoftware.com](mailto:bripley@uplandsoftware.com)) so I can update.
 ## Overview
 
 [Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's official CLI tool for interacting with Claude. When using it with AWS Bedrock, Claude runs within our AWS infrastructure, giving us control over data residency and security. 
