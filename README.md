@@ -22,6 +22,10 @@ Once configured, you can start Claude Code by changing to your project folder an
 ```
 claude
 ```
+
+### Troubleshooting
+See [troubleshooting](/troubleshooting.md) for more help with common errors when using claude with bedrock.
+
 ## Basic Usage
 1. Standard shell commands while inside claude: Use `!` to run non-claude terminal commands within the claude code cli. For example:
     ```
