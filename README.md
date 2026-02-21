@@ -34,7 +34,7 @@ Once configured, you can start Claude Code by changing to your project folder an
 claude
 ```
 
-![[configuration/claude.png]]
+![](configuration/claude.png)
 
 See [troubleshooting](configuration/troubleshooting.md) for more help with common errors when using claude with bedrock.
 
