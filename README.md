@@ -12,7 +12,7 @@ I will try to update periodically, but if you notice any errors, please feel fre
 
 ## Configuration Steps
 
-> [!WARNING]
+> [!INFO]
 > Before proceeding, you should be able to login to AWS console in a browser via SSO and see your account number and a role that has access to Bedrock. Ask your AWS administrator if you're not sure where to find these.
 
 #### Prerequisites
