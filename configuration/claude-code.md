@@ -26,6 +26,7 @@ brew install --cask claude-code
 **Note**: Homebrew installations do not auto-update. Run `brew upgrade claude-code` periodically to get the latest features and security fixes.
 
 ## Verify installation
+
 Verify the installation by checking the version:
 ```bash
 claude --version
