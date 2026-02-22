@@ -4,13 +4,11 @@ These are my personal notes for configuring Claude Code for use with AWS Bedrock
 
 I will try to update periodically, but if you notice any errors, please feel free to submit a PR, [file an issue](https://github.com/upld-internal/claude-code-notes/issues/new), or [contact me](mailto:bripley@uplandsoftware.com) so I can update.
 
-## Overview
+## Why Claude With Bedrock?
 
-[Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's official CLI tool for interacting with Claude. When using it with AWS Bedrock, Claude runs within our AWS infrastructure, giving us control over data residency and security. 
+[AWS Bedrock](https://aws.amazon.com/bedrock/) provides a single interface for foundation models from Anthropic, Meta, Mistral, Stability AI, and Amazon, allowing for text, image, and chat-based applications without managing infrastructure. When using [Claude Code](https://code.claude.com/docs/en/overview) with AWS Bedrock, Claude runs within our AWS infrastructure, giving us control over data residency and security. 
 
-[AWS Bedrock](https://aws.amazon.com/bedrock/) provides a single interface for foundation models from Anthropic, Meta, Mistral, Stability AI, and Amazon, allowing for text, image, and chat-based applications without managing infrastructure.
-
-## Configuration Steps
+## Configuration
 
 > [!NOTE]
 > Before proceeding, you should be able to login to AWS console in a browser via SSO and see your account number and a role that has access to Bedrock. Ask your AWS administrator if you're not sure where to find these.

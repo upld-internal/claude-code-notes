@@ -80,6 +80,11 @@ aws bedrock list-inference-profiles
 aws bedrock list-inference-profiles \
   --query "inferenceProfileSummaries[?contains(inferenceProfileId, 'claude')]" \
   --output table
+  
+# List inference profiles for US models
+aws bedrock list-inference-profiles \
+  --query "inferenceProfileSummaries[?contains(inferenceProfileId, 'us')].[inferenceProfileName,status,inferenceProfileArn]" \
+  --output table
 
 # Get details on a specific inference profile
 aws bedrock get-inference-profile \

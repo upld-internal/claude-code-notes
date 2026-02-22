@@ -8,66 +8,31 @@ This section is a work in progress. Topics include the following, but more comin
 - [Dev Containers](#development-containers)
 - [Git Worktrees](#git-worktrees)
 
-## Hooks & settings.json
+## settings.json
 
-### Hooks
-Hooks run scripts automatically at specific points in Claude’s workflow. Unlike claude.md instructions which are advisory, hooks are deterministic and guarantee the action happens.
-
-Claude can write hooks for you. Try prompts like “Write a hook that runs eslint after every file edit” or “Write a hook that blocks writes to the migrations folder.” Run /hooks for interactive configuration, or edit [settings.json](#settingsjson) directly.
-
-### settings.json
 While  `claude.md` handles instructions and context, `settings.json` gives you programmatic control over Claude’s behavior. This JSON configuration manages permissions, environment variables, and advanced features that go beyond simple instructions.
 
-Claude Code supports multiple settings.json locations:
-
-- **Global**: `~/.claude/settings.json` (applies to all projects)
-- **Project**: `.claude/settings.json` (shared with team via version control)
-- **Local**: `.claude/settings.local.json` (personal overrides, typically gitignored)
+See [configuring settings.json] for more.
 
 ## MCP
 
-With MCP servers, you can allow Claude to connect to external tools and services. For example, you could use MCP to implement features from issue trackers, query databases, analyze monitoring data, integrate designs from Figma, or automate workflows.
+MCP (Model Context Protocol) is an open standard that allows Claude Code to connect to external tools, services, and data sources. It enables Claude to interact with systems like Jira, GitHub, databases, and more through a standardized interface.
 
-> [!Note] 
-> Run `claude mcp add` to connect external tools like Jira.
-> ```
-> claude mcp add --transport http atlassian https://mcp.atlassian.com/v1/mcp
-> ```
+See [MCP](mcp.md) for more info.
 
 ## Sub-Agents
 
 Subagents are specialized AI assistants that handle specific types of tasks. Each subagent runs in its own context window with a custom system prompt, specific tool access, and independent permissions. When Claude encounters a task that matches a subagent’s description, it delegates to that subagent, which works independently and returns results.
 
-Subagents help you:
-
-- **Preserve context** by keeping exploration and implementation out of your main conversation
-- **Enforce constraints** by limiting which tools a subagent can use
-- **Reuse configurations** across projects with user-level subagents
-- **Specialize behavior** with focused system prompts for specific domains
-- **Control costs** by routing tasks to faster, cheaper models like Haiku
-
-Claude uses each subagent’s description to decide when to delegate tasks. When you create a subagent, write a clear description so Claude knows when to use it.
-
-> [!TIP]
-> If you need multiple agents working in parallel and communicating with each other, see [agent teams](#agentteams) instead. Subagents work within a single session; agent teams coordinate across separate sessions.
-
-Refer here for pre-configured [awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents).
+See [Sub-Agents](sub-agents.md) for more info and check out this collection of [awesome claude code subagents](https://github.com/VoltAgent/awesome-claude-code-subagents).
 
 ## Agent Teams
 
-> [!INFO]
-> Agent teams are disabled by default. Enable them by setting the `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` environment variable to `1`
-
 Agent teams let you coordinate multiple Claude Code instances working together. One session acts as the team lead, coordinating work, assigning tasks, and synthesizing results. Teammates work independently, each in its own context window, and communicate directly with each other.
 
-Unlike [subagents](#sub-agents), which run within a single session and can only report back to the main agent, you can also interact with individual teammates directly without going through the lead.
+Unlike subagents, which run within a single session and can only report back to the main agent, you can also interact with individual teammates directly without going through the lead. 
 
-Agent teams are most effective for tasks where parallel exploration adds real value. The strongest use cases are:
-
-- **Research and review**: multiple teammates can investigate different aspects of a problem simultaneously, then share and challenge each other’s findings
-- **New modules or features**: teammates can each own a separate piece without stepping on each other
-- **Debugging with competing hypotheses**: teammates test different theories in parallel and converge on the answer faster
-- **Cross-layer coordination**: changes that span frontend, backend, and tests, each owned by a different teammate
+See [Multi Agent Teams](multi-agent-teams.md) for more info.
 
 > [!WARNING] 
 > Agent teams add coordination overhead and use significantly more tokens than a single session. They work best when teammates can operate independently. For sequential tasks, same-file edits, or work with many dependencies, a single session or [subagents](https://code.claude.com/docs/en/sub-agents) are more effective.
