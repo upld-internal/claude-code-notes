@@ -52,3 +52,5 @@ Git worktrees allow you to check out multiple branches from the same repository 
 Think of it this way:
 - **Traditional workflow**: One working directory, switch between branches
 - **Worktree workflow**: Multiple working directories, each with its own branch
+
+For more information, see [Git Worktrees](git-worktrees.md)

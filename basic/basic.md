@@ -22,6 +22,7 @@ Use `/clear` slash command to clear context
 #### Use plan mode
 Press `Shift+Tab` to cycle to the "plan mode" indicator (⏸) in the terminal, then enter your complex request; Claude will analyze and create a detailed, step-by-step plan without making changes, which you can review, edit (`Ctrl+G`), and approve before execution, separating thinking from doing for safer, more complex refactors. 
 
+
 ## Adding Context With Config Files
 
 ### claude.md
@@ -51,6 +52,8 @@ Skills teach Claude how to complete specific tasks in a repeatable way. Skills a
 Skills are typically added to a hidden `.claude/skills` skills directory in the root of your project. For example `.claude/skills/code-review/skill.md` 
 
 Check out [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills) for some great examples of pre-made skills or learn more about [how to create your own custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills).
+
+
 ## Best Practices
 Claude Code is an agentic coding environment. Unlike a chatbot that answers questions and waits, Claude Code can read your files, run commands, make changes, and autonomously work through problems while you watch, redirect, or step away entirely.
 

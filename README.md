@@ -4,9 +4,11 @@ These are my personal notes for configuring Claude Code for use with AWS Bedrock
 
 I will try to update periodically, but if you notice any errors, please feel free to submit a PR, [file an issue](https://github.com/upld-internal/claude-code-notes/issues/new), or [contact me](mailto:bripley@uplandsoftware.com) so I can update.
 
+
 ## Why Claude With Bedrock?
 
 [AWS Bedrock](https://aws.amazon.com/bedrock/) provides a single interface for foundation models from Anthropic, Meta, Mistral, Stability AI, and Amazon, allowing for text, image, and chat-based applications without managing infrastructure. When using [Claude Code](https://code.claude.com/docs/en/overview) with AWS Bedrock, Claude runs within our AWS infrastructure, giving us control over data residency and security. 
+
 
 ## Configuration
 
@@ -36,28 +38,31 @@ claude
 
 See [troubleshooting](configuration/troubleshooting.md) for more help with common errors when using claude with bedrock.
 
+
 ## Useful CLI Commands
 
 Reference [useful AWS CLI commands](configuration/useful-cli-commands).
+
 
 ## Basic Usage
 
 See [basic usage](basic.md) for common commands and pro tips for getting started with Claude Code including:
 
-- Common commands
-- Config files (claude.md & skills)
-- AI-assisted development best practices 
+- [Common Commands](basic.md#common-commands)
+- [Adding Context With Config Files (claude.md & skills)](basic.md#adding-context-with-config-files)
+- [AI-assisted Development Best Practices](basic.md#best-practices) 
+
 
 ## Advanced Usage
 
 See [advanced usage](advanced.md) for more advanced workflows with claude code including:
 
-- MCP
-- Hooks & settings.json
-- Sub-Agents
-- Agent Teams
-- Dev Containers
-- Git Worktrees
+- [MCP](advanced.md#mcp)
+- [Settings.json & Hooks](advanced.md#settings.json)
+- [Sub-Agents](advanced.md#sub-agents)
+- [Agent Teams](advanced.md#agent-teams)
+- [Dev Containers](advanced.md#dev-containers)
+- [Git Worktrees](advanced.md#git-worktrees)
 
 
 
