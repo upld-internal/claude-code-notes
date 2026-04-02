@@ -12,6 +12,12 @@ Multi Agent Teams allows you to spawn multiple Claude "teammates" that can:
 
 This is particularly useful for large-scale refactors, parallel code reviews, and complex features spanning multiple layers of an application.
 
+[![Agent Team Prompt](images/agent-team-prompt.png)](#)
+
+[![Agent Team Response](images/agent-team-response.png)](#)
+
+[![Agent Team](images/agent-team.png)](#)
+
 > [!WARNING]
 > **Token Consumption Warning**: Multi Agent Teams can significantly increase token usage and costs. Each teammate maintains its own context and consumes tokens independently. Sessions with 4-5 teammates can cost $15-30+, while 6+ teammates may exceed $30 per session. Plan accordingly and monitor usage.
 

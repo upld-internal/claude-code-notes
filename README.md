@@ -41,28 +41,28 @@ See [troubleshooting](configuration/troubleshooting.md) for more help with commo
 
 ## Useful CLI Commands
 
-Reference [useful AWS CLI commands](configuration/useful-cli-commands).
+Reference [useful AWS CLI commands](configuration/useful-cli-commands.md).
 
 
 ## Basic Usage
 
-See [basic usage](basic.md) for common commands and pro tips for getting started with Claude Code including:
+See [basic usage](basic/basic.md) for common commands and pro tips for getting started with Claude Code including:
 
-- [Common Commands](basic.md#common-commands)
-- [Adding Context With Config Files (claude.md & skills)](basic.md#adding-context-with-config-files)
-- [AI-assisted Development Best Practices](basic.md#best-practices) 
+- [Common Commands](basic/basic.md#common-commands)
+- [Adding Context With Config Files (claude.md & skills)](basic/basic.md#adding-context-with-config-files)
+- [AI-assisted Development Best Practices](basic/basic.md#best-practices)
 
 
 ## Advanced Usage
 
-See [advanced usage](advanced.md) for more advanced workflows with claude code including:
+See [advanced usage](advanced/advanced.md) for more advanced workflows with claude code including:
 
-- [MCP](advanced.md#mcp)
-- [Settings.json & Hooks](advanced.md#settings.json)
-- [Sub-Agents](advanced.md#sub-agents)
-- [Agent Teams](advanced.md#agent-teams)
-- [Dev Containers](advanced.md#dev-containers)
-- [Git Worktrees](advanced.md#git-worktrees)
+- [MCP](advanced/advanced.md#mcp)
+- [Settings.json & Hooks](advanced/advanced.md#settings.json)
+- [Sub-Agents](advanced/advanced.md#sub-agents)
+- [Agent Teams](advanced/advanced.md#agent-teams)
+- [Dev Containers](advanced/advanced.md#dev-containers)
+- [Git Worktrees](advanced/advanced.md#git-worktrees)
 
 
 

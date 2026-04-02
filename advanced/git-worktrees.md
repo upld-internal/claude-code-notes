@@ -12,6 +12,9 @@ In a standard workflow, you have one working directory and must switch branches 
 - You need to run tests on one branch while editing another
 - Multiple agents need to make file changes concurrently without conflicts
 
+Here you can see a git worktree is vscode with three unique features being implemented in parallel.
+[![Agent Team](images/worktree-in-vscode.png)](#)
+
 ---
 
 ## Starting a Worktree Session
