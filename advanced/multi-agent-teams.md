@@ -12,8 +12,6 @@ Multi Agent Teams allows you to spawn multiple Claude "teammates" that can:
 
 This is particularly useful for large-scale refactors, parallel code reviews, and complex features spanning multiple layers of an application.
 
-[![Agent Team Prompt](images/agent-team-prompt.png)](#)
-
 [![Agent Team Response](images/agent-team-response.png)](#)
 
 [![Agent Team](images/agent-team.png)](#)
